@@ -730,6 +730,7 @@ open class WebSocket : NSObject, StreamDelegate, WebSocketClient, WSStreamDelega
         mutex.lock()
         cleanupStream()
         connected = false
+        readyToWrite = false
         mutex.unlock()
         if runDelegate {
             doDisconnect(error)
